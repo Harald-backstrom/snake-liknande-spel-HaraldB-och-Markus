@@ -46,7 +46,7 @@ const canvas = document.getElementById('gameCanvas');
         }
 
         function spawnFood() {
-            const numFoods = document.getElementById('difficulty').value / 3;
+            const numFoods = document.getElementById('difficulty').value;
             foods = [];
             for (let i = 0; i < numFoods; i++) {
                 foods.push({ x: randomPosition(), y: randomPosition() });
