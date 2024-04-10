@@ -83,7 +83,7 @@
                     score += 1;
                     document.getElementById('score').innerText = score;
                     foods.splice(index, 1);
-                    spawnFood(); // Spawn a new apple
+                    spawnFood();
                     ateFood = true;
                 }
             });
@@ -147,7 +147,6 @@
 
         document.getElementById('difficulty').addEventListener('change', () => {
             const difficulty = document.getElementById('difficulty').value;
-            // Adjust speed based on difficulty
             switch (difficulty) {
                 case '1':
                     speed = 120;
