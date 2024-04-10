@@ -30,7 +30,7 @@
         let dy = 0;
         let score = 0;
         let isPaused = true;
-        let speed = 120; // Initial speed
+        let speed = 120;
         let gameInterval;
 
         function drawSnake() {
@@ -67,7 +67,7 @@
         }
 
         function spawnFood() {
-            const numFoods = document.getElementById('difficulty').value * 3; // Three times the difficulty level
+            const numFoods = document.getElementById('difficulty').value / 3;
             foods = [];
             for (let i = 0; i < numFoods; i++) {
                 foods.push({ x: randomPosition(), y: randomPosition() });

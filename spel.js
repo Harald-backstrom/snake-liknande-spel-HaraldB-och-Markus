@@ -11,8 +11,6 @@
     let score = 0;
     let isPaused = false;
 
-
-    console.log("h3EJ")
     function drawSnake() {
         ctx.fillStyle = 'green';
         snake.forEach(segment => {
