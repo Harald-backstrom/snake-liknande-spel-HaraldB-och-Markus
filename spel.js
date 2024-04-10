@@ -109,3 +109,5 @@
 
     spawnFood();
     gameLoop();
+
+    jhakjghasjajg
