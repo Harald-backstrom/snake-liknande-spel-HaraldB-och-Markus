@@ -1,3 +1,12 @@
+function changeBackground() {
+  if ((document.getElementById("background").val = "1")) {
+    document.body.style.backgroundImage = "url('Space_scenery1.jpg')";
+  }
+  if ((document.getElementById("background").val = "2")) {
+  }
+  if ((document.getElementById("background").val = "3")) {
+  }
+}
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
