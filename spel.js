@@ -1,12 +1,17 @@
 function changeBackground() {
-  if ((document.getElementById("background").val = "1")) {
-    document.body.style.backgroundImage = "url('Space_scenery1.jpg')";
-  }
-  if ((document.getElementById("background").val = "2")) {
-  }
-  if ((document.getElementById("background").val = "3")) {
+  var selectElement = document.getElementById("imageSelector");
+  var selectedValue = selectElement.value;
+  if (selectedValue === "white") {
+    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundImage = "none";
+  } else {
+    document.body.style.backgroundImage = "url('" + selectedValue + "')";
+    document.body.style.backgroundColor = "transparent";
   }
 }
+
+// Set initial background
+changeBackground();
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
