@@ -3,6 +3,7 @@ function changeBackground() {
     document.body.style.backgroundImage = "url('Space_scenery1.jpg')";
   }
   if ((document.getElementById("background").val = "2")) {
+    
   }
   if ((document.getElementById("background").val = "3")) {
   }
