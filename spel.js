@@ -10,8 +10,8 @@ function changeBackground() {
   }
 }
 
+// Set initial background
 changeBackground();
-
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -86,7 +86,7 @@ function moveSnake() {
       score += 1;
       document.getElementById("score").innerText = score;
       foods.splice(index, 1);
-      spawnFood();
+      spawnFood(); // Add a new food when one is eaten
       ateFood = true;
     }
   });
