@@ -10,8 +10,8 @@ function changeBackground() {
   }
 }
 
+// Set initial background
 changeBackground();
-
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -86,7 +86,7 @@ function moveSnake() {
       score += 1;
       document.getElementById("score").innerText = score;
       foods.splice(index, 1);
-      spawnFood();
+      spawnFood(); // Add a new food when one is eaten
       ateFood = true;
     }
   });
@@ -128,19 +128,16 @@ function gameLoop() {
 document.addEventListener("keydown", (event) => {
   const keyPressed = event.key;
   if (!isPaused) {
-    if (keyPressed === "ArrowUp" || (keyPressed === "w" && dy === 0)) {
+    if (keyPressed === "ArrowUp" && dy === 0 ) {
       dx = 0;
       dy = -snakeSize;
-    } else if (keyPressed === "ArrowDown" || (keyPressed === "s" && dy === 0)) {
+    } else if (keyPressed === "ArrowDown" && dy === 0) {
       dx = 0;
       dy = snakeSize;
-    } else if (keyPressed === "ArrowLeft" || (keyPressed === "a" && dx === 0)) {
+    } else if (keyPressed === "ArrowLeft" && dx === 0) {
       dx = -snakeSize;
       dy = 0;
-    } else if (
-      keyPressed === "ArrowRight" ||
-      (keyPressed === "d" && dx === 0)
-    ) {
+    } else if (keyPressed === "ArrowRight" && dx === 0) {
       dx = snakeSize;
       dy = 0;
     }
