@@ -128,17 +128,26 @@ function gameLoop() {
 document.addEventListener("keydown", (event) => {
   const keyPressed = event.key;
   if (!isPaused) {
-    if (keyPressed === "ArrowUp" || (keyPressed === "w" && dy === 0)) {
+    if (
+      (keyPressed === "ArrowUp" && dy === 0) ||
+      (keyPressed === "w" && dy === 0)
+    ) {
       dx = 0;
       dy = -snakeSize;
-    } else if (keyPressed === "ArrowDown" || (keyPressed === "s" && dy === 0)) {
+    } else if (
+      (keyPressed === "ArrowDown" && dy === 0) ||
+      (keyPressed === "s" && dy === 0)
+    ) {
       dx = 0;
       dy = snakeSize;
-    } else if (keyPressed === "ArrowLeft" || (keyPressed === "a" && dx === 0)) {
+    } else if (
+      (keyPressed === "ArrowLeft" && dx === 0) ||
+      (keyPressed === "a" && dx === 0)
+    ) {
       dx = -snakeSize;
       dy = 0;
     } else if (
-      keyPressed === "ArrowRight" ||
+      (keyPressed === "ArrowRight" && dx === 0) ||
       (keyPressed === "d" && dx === 0)
     ) {
       dx = snakeSize;
