@@ -10,8 +10,8 @@ function changeBackground() {
   }
 }
 
-// Set initial background
 changeBackground();
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -86,7 +86,7 @@ function moveSnake() {
       score += 1;
       document.getElementById("score").innerText = score;
       foods.splice(index, 1);
-      spawnFood(); // Add a new food when one is eaten
+      spawnFood();
       ateFood = true;
     }
   });
@@ -106,6 +106,18 @@ function checkCollision() {
       .slice(1)
       .some((segment) => segment.x === head.x && segment.y === head.y)
   );
+}
+
+function resetGame() {
+  snake = [{ x: 200, y: 200 }];
+  foods = [];
+  dx = 0;
+  dy = 0;
+  score = 0;
+  isPaused = true;
+  clearInterval(gameInterval);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  document.getElementById("score").innerText = score;
 }
 
 function gameLoop() {
@@ -156,29 +168,40 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-document.getElementById("playButton").addEventListener("click", () => {
+function updateGameSpeed(newSpeed) {
+  speed = newSpeed;
+  if (!isPaused && gameInterval) {
+    clearInterval(gameInterval);
+    gameInterval = setInterval(gameLoop, speed);
+  }
+}
+
+function restartGame() {
+  resetGame();
   isPaused = false;
   gameInterval = setInterval(gameLoop, speed);
   spawnFood();
-});
+}
 
 document.getElementById("difficulty").addEventListener("change", () => {
   const difficulty = document.getElementById("difficulty").value;
   switch (difficulty) {
     case "1":
-      speed = 120;
+      updateGameSpeed(80);
       break;
     case "2":
-      speed = 100;
+      updateGameSpeed(100);
       break;
     case "3":
-      speed = 80;
+      updateGameSpeed(130);
       break;
     default:
-      speed = 120;
+      updateGameSpeed(130);
   }
-  if (!isPaused) {
-    clearInterval(gameInterval);
-    gameInterval = setInterval(gameLoop, speed);
-  }
+});
+
+document.getElementById("playButton").addEventListener("click", () => {
+  try {
+    restartGame();
+  } catch (error) {}
 });
