@@ -89,25 +89,10 @@ function moveSnake() {
     }
   });
 
-  
   if (!ateFood) {
     snake.pop();
   }
 }
-
-// function highScore(score) {
-//   var saved = 0;
-//   try { saved = parseFloat(localStorage.highScore); } catch (e) { saved = 0; }
-//   if (!(typeof score === 'undefined')) {
-//      saved = score;
-//      localStorage.highScore = '' + score;
-//   }
-//   if (isNaN(saved)) {
-//      saved = 0;
-//      localStorage.highScore = '0';
-//   }
-//   return saved;
-// }
 
 function checkCollision() {
   const head = snake[0];
