@@ -22,3 +22,9 @@ body {
   display: flex;
   align-items: center;
 }
+
+#button {
+  margin: auto;
+  display: flex;
+  margin-top: 25%;
+}
