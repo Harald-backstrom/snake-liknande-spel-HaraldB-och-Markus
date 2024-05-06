@@ -134,11 +134,19 @@ function gameLoop() {
     drawFood();
     drawSnake();
   }
+
+  if (isPaused) {
+    document.getElementById("pauseMessage").style.display = "block";
+  } else {
+    document.getElementById("pauseMessage").style.display = "none";
+  }
 }
 
 document.addEventListener("keydown", (event) => {
   const keyPressed = event.key;
-  if (!isPaused) {
+  if (keyPressed === " ") {
+    isPaused = !isPaused;
+  } else if (!isPaused) {
     if (
       (keyPressed === "ArrowUp" && dy === 0) ||
       (keyPressed === "w" && dy === 0)
@@ -203,4 +211,8 @@ document.getElementById("playButton").addEventListener("click", () => {
   try {
     restartGame();
   } catch (error) {}
+});
+
+document.getElementById("pauseButton").addEventListener("click", () => {
+  isPaused = !isPaused;
 });
