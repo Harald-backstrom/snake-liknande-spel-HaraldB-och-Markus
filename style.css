@@ -10,3 +10,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#menu {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
