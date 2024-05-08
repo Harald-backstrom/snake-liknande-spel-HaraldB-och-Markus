@@ -208,9 +208,7 @@ document.getElementById("difficulty").addEventListener("change", () => {
 });
 
 document.getElementById("playButton").addEventListener("click", () => {
-  try {
-    restartGame();
-  } catch (error) {}
+  restartGame();
 });
 
 document.getElementById("pauseButton").addEventListener("click", () => {
